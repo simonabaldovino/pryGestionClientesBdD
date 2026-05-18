@@ -16,5 +16,11 @@ namespace pryGestionClientesBdD
         {
             InitializeComponent();
         }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            clsCliente x = new clsCliente();
+            x.Listar(dgvGrilla); 
+        }
     }
 }
