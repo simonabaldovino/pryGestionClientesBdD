@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +17,8 @@ namespace pryGestionClientesBdD
         private OleDbCommand comando = new OleDbCommand();
         private OleDbDataAdapter adaptador = new OleDbDataAdapter();
 
-        private String CadenaConexion = "Provider=Microsoft,Jet.OLEDB.4.0;Data Source=Clientes.mdb";
-        private String Tabla = "Client";
+        private String CadenaConexion = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Clientes.mdb";
+        private String Tabla = "Cliente";
 
         // variables de los datos calculados en clientes deudores
         private Decimal deuda;
@@ -100,8 +101,69 @@ namespace pryGestionClientesBdD
             {
                 MessageBox.Show(e.ToString());
             }
-
         }
+
+        public void ReporteClientes()
+        {
+            try
+            {
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = Tabla;
+
+                OleDbDataReader DR = comando.ExecuteReader();
+
+                StreamWriter AD = new StreamWriter("ReporteClientes.csv", false,Encoding.UTF8);
+
+                AD.WriteLine("Listado de clientes\n");
+                AD.WriteLine("Código; Nombre; Deuda");
+
+                cantidad = 0;
+                deuda = 0;
+
+                if (DR.HasRows)
+                {
+                    while (DR.Read())
+                    {
+                        AD.Write(DR.GetInt32(0));
+                        AD.Write(";");
+                        AD.Write(DR.GetString(1));
+                        AD.Write(";");
+                        AD.Write(DR.GetDecimal(2));
+
+                        cantidad++;
+                        deuda = deuda + DR.GetDecimal(2);
+                    }
+                    AD.Write("\nCantidad de clientes:;;");
+                    AD.WriteLine(cantidad);
+                    AD.Write("Deuda de los clientes:;;");
+                    AD.WriteLine(deuda);
+                    AD.Write("Promedio de deuda:;;");
+                    AD.WriteLine(deuda / cantidad);
+                }
+                AD.Close();
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

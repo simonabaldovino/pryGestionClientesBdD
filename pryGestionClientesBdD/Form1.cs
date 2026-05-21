@@ -21,9 +21,16 @@ namespace pryGestionClientesBdD
         {
             clsCliente x = new clsCliente();
             x.ListarDeudores(dgvDeudores);
-            lblCantClientes.Text = x.CantidadDeudores.ToString();
-            lblTotDeuda.Text = x.TotalDeuda.ToString("0.00");
-            lblPromDeuda.Text = x.PromedioDeuda.ToString("0.00");
+            lblCantidadClientess.Text = x.CantidadDeudores.ToString();
+            lblTotalDeudaa.Text = x.TotalDeuda.ToString("0.00");
+            lblPromedioDeudass.Text = x.PromedioDeuda.ToString("0.00");
+        }
+
+        private void btnReportar_Click(object sender, EventArgs e)
+        {
+            clsCliente x = new clsCliente();
+            x.ReporteClientes();
+            MessageBox.Show("El reporte se generó correctamente!");
         }
     }
 }
