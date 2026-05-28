@@ -144,6 +144,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblCodCli);
             this.Name = "BusquedaClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BusquedaClientes";
             this.Load += new System.EventHandler(this.BusquedaClientes_Load);
             this.groupBox1.ResumeLayout(false);

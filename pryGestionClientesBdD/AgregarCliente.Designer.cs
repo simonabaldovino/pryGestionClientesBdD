@@ -98,6 +98,7 @@
             // 
             // cboAuto
             // 
+            this.cboAuto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAuto.FormattingEnabled = true;
             this.cboAuto.Location = new System.Drawing.Point(168, 135);
             this.cboAuto.Name = "cboAuto";
@@ -120,6 +121,7 @@
             this.ClientSize = new System.Drawing.Size(469, 272);
             this.Controls.Add(this.groupBox1);
             this.Name = "AgregarCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Cliente";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -72,6 +72,7 @@
             this.ClientSize = new System.Drawing.Size(633, 388);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmListadoClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListadoClientes";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).EndInit();

@@ -37,6 +37,7 @@
             this.listadoDeClientesDeudoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoDeClientesOrdenadosPorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +80,8 @@
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listadoDeTodosLosClientesToolStripMenuItem,
             this.listadoDeClientesDeudoresToolStripMenuItem,
-            this.listadoDeClientesOrdenadosPorToolStripMenuItem});
+            this.listadoDeClientesOrdenadosPorToolStripMenuItem,
+            this.agregarClientesToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.clientesToolStripMenuItem.Text = "Clientes";
@@ -111,6 +113,13 @@
             this.vendedoresToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.vendedoresToolStripMenuItem.Text = "Vendedores";
             // 
+            // agregarClientesToolStripMenuItem
+            // 
+            this.agregarClientesToolStripMenuItem.Name = "agregarClientesToolStripMenuItem";
+            this.agregarClientesToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.agregarClientesToolStripMenuItem.Text = "Agregar clientes ";
+            this.agregarClientesToolStripMenuItem.Click += new System.EventHandler(this.agregarClientesToolStripMenuItem_Click);
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,5 +150,6 @@
         private System.Windows.Forms.ToolStripMenuItem listadoDeClientesDeudoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listadoDeClientesOrdenadosPorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarClientesToolStripMenuItem;
     }
 }

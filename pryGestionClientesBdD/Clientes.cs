@@ -39,5 +39,11 @@ namespace pryGestionClientesBdD
             Form formulario = new BusquedaClientes();
             formulario.Show();
         }
+
+        private void agregarClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formulario = new AgregarCliente();
+            formulario.Show();
+        }
     }
 }

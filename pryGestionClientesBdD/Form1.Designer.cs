@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnGenerarReporte = new System.Windows.Forms.Button();
+            this.lblCantidadClientess = new System.Windows.Forms.Label();
+            this.lblPromedioDeudass = new System.Windows.Forms.Label();
+            this.lblTotalDeudaa = new System.Windows.Forms.Label();
             this.lblCantidadClientes = new System.Windows.Forms.Label();
             this.lblPromedioDeuda = new System.Windows.Forms.Label();
             this.lblTotalDeuda = new System.Windows.Forms.Label();
@@ -40,10 +44,6 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTotalDeudaa = new System.Windows.Forms.Label();
-            this.lblPromedioDeudass = new System.Windows.Forms.Label();
-            this.lblCantidadClientess = new System.Windows.Forms.Label();
-            this.btnGenerarReporte = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeudores)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +68,40 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consulta de datos";
+            // 
+            // btnGenerarReporte
+            // 
+            this.btnGenerarReporte.Location = new System.Drawing.Point(211, 349);
+            this.btnGenerarReporte.Name = "btnGenerarReporte";
+            this.btnGenerarReporte.Size = new System.Drawing.Size(100, 29);
+            this.btnGenerarReporte.TabIndex = 21;
+            this.btnGenerarReporte.Text = "Generar reporte";
+            this.btnGenerarReporte.UseVisualStyleBackColor = true;
+            this.btnGenerarReporte.Click += new System.EventHandler(this.btnReportar_Click);
+            // 
+            // lblCantidadClientess
+            // 
+            this.lblCantidadClientess.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblCantidadClientess.Location = new System.Drawing.Point(321, 260);
+            this.lblCantidadClientess.Name = "lblCantidadClientess";
+            this.lblCantidadClientess.Size = new System.Drawing.Size(100, 23);
+            this.lblCantidadClientess.TabIndex = 20;
+            // 
+            // lblPromedioDeudass
+            // 
+            this.lblPromedioDeudass.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPromedioDeudass.Location = new System.Drawing.Point(321, 298);
+            this.lblPromedioDeudass.Name = "lblPromedioDeudass";
+            this.lblPromedioDeudass.Size = new System.Drawing.Size(100, 23);
+            this.lblPromedioDeudass.TabIndex = 19;
+            // 
+            // lblTotalDeudaa
+            // 
+            this.lblTotalDeudaa.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblTotalDeudaa.Location = new System.Drawing.Point(319, 223);
+            this.lblTotalDeudaa.Name = "lblTotalDeudaa";
+            this.lblTotalDeudaa.Size = new System.Drawing.Size(100, 23);
+            this.lblTotalDeudaa.TabIndex = 18;
             // 
             // lblCantidadClientes
             // 
@@ -176,40 +210,6 @@
             this.Column3.Name = "Column3";
             this.Column3.Width = 130;
             // 
-            // lblTotalDeudaa
-            // 
-            this.lblTotalDeudaa.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblTotalDeudaa.Location = new System.Drawing.Point(319, 223);
-            this.lblTotalDeudaa.Name = "lblTotalDeudaa";
-            this.lblTotalDeudaa.Size = new System.Drawing.Size(100, 23);
-            this.lblTotalDeudaa.TabIndex = 18;
-            // 
-            // lblPromedioDeudass
-            // 
-            this.lblPromedioDeudass.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPromedioDeudass.Location = new System.Drawing.Point(321, 298);
-            this.lblPromedioDeudass.Name = "lblPromedioDeudass";
-            this.lblPromedioDeudass.Size = new System.Drawing.Size(100, 23);
-            this.lblPromedioDeudass.TabIndex = 19;
-            // 
-            // lblCantidadClientess
-            // 
-            this.lblCantidadClientess.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblCantidadClientess.Location = new System.Drawing.Point(321, 260);
-            this.lblCantidadClientess.Name = "lblCantidadClientess";
-            this.lblCantidadClientess.Size = new System.Drawing.Size(100, 23);
-            this.lblCantidadClientess.TabIndex = 20;
-            // 
-            // btnGenerarReporte
-            // 
-            this.btnGenerarReporte.Location = new System.Drawing.Point(211, 349);
-            this.btnGenerarReporte.Name = "btnGenerarReporte";
-            this.btnGenerarReporte.Size = new System.Drawing.Size(100, 29);
-            this.btnGenerarReporte.TabIndex = 21;
-            this.btnGenerarReporte.Text = "Generar reporte";
-            this.btnGenerarReporte.UseVisualStyleBackColor = true;
-            this.btnGenerarReporte.Click += new System.EventHandler(this.btnReportar_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,6 +217,7 @@
             this.ClientSize = new System.Drawing.Size(507, 452);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes deudores ";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
