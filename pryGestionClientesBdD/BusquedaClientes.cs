@@ -19,6 +19,10 @@ namespace pryGestionClientesBdD
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            txtCodigo.Text = txtCodigo.Text; 
+            lblNombre.Text = "";
+            btnBuscar.Enabled = false;
+
             Int32 iDCliente = Convert.ToInt32(txtCodigo.Text);
             clsCliente x = new clsCliente();
             x.Buscar(iDCliente);
@@ -37,6 +41,18 @@ namespace pryGestionClientesBdD
                 lblLimite.Text = "";
                 MessageBox.Show("No se encontró el cliente");
             }
-        }   
+            txtCodigo.Clear();
+            btnBuscar.Enabled = false;  
+        }
+
+        private void BusquedaClientes_Load(object sender, EventArgs e)
+        {
+            btnBuscar.Enabled = false;
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            btnBuscar.Enabled = (txtCodigo.Text != ""); 
+        }
     }
 }

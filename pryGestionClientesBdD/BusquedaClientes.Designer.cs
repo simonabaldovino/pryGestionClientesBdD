@@ -35,9 +35,9 @@
             this.lblNom = new System.Windows.Forms.Label();
             this.lblLimiteCred = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblDeuda = new System.Windows.Forms.Label();
             this.lblLimite = new System.Windows.Forms.Label();
+            this.lblDeuda = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +66,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(117, 20);
             this.txtCodigo.TabIndex = 2;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // lblDeud
             // 
@@ -109,13 +110,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Cliente";
             // 
-            // lblNombre
+            // lblLimite
             // 
-            this.lblNombre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblNombre.Location = new System.Drawing.Point(128, 44);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(100, 23);
-            this.lblNombre.TabIndex = 6;
+            this.lblLimite.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblLimite.Location = new System.Drawing.Point(128, 136);
+            this.lblLimite.Name = "lblLimite";
+            this.lblLimite.Size = new System.Drawing.Size(100, 23);
+            this.lblLimite.TabIndex = 8;
             // 
             // lblDeuda
             // 
@@ -125,13 +126,13 @@
             this.lblDeuda.Size = new System.Drawing.Size(100, 23);
             this.lblDeuda.TabIndex = 7;
             // 
-            // lblLimite
+            // lblNombre
             // 
-            this.lblLimite.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblLimite.Location = new System.Drawing.Point(128, 136);
-            this.lblLimite.Name = "lblLimite";
-            this.lblLimite.Size = new System.Drawing.Size(100, 23);
-            this.lblLimite.TabIndex = 8;
+            this.lblNombre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblNombre.Location = new System.Drawing.Point(128, 44);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(100, 23);
+            this.lblNombre.TabIndex = 6;
             // 
             // BusquedaClientes
             // 
@@ -144,6 +145,7 @@
             this.Controls.Add(this.lblCodCli);
             this.Name = "BusquedaClientes";
             this.Text = "BusquedaClientes";
+            this.Load += new System.EventHandler(this.BusquedaClientes_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
