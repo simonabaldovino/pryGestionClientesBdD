@@ -87,22 +87,23 @@
             // listadoDeTodosLosClientesToolStripMenuItem
             // 
             this.listadoDeTodosLosClientesToolStripMenuItem.Name = "listadoDeTodosLosClientesToolStripMenuItem";
-            this.listadoDeTodosLosClientesToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
+            this.listadoDeTodosLosClientesToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.listadoDeTodosLosClientesToolStripMenuItem.Text = "Listado de todos los clientes";
             this.listadoDeTodosLosClientesToolStripMenuItem.Click += new System.EventHandler(this.listadoDeTodosLosClientesToolStripMenuItem_Click);
             // 
             // listadoDeClientesDeudoresToolStripMenuItem
             // 
             this.listadoDeClientesDeudoresToolStripMenuItem.Name = "listadoDeClientesDeudoresToolStripMenuItem";
-            this.listadoDeClientesDeudoresToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
+            this.listadoDeClientesDeudoresToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.listadoDeClientesDeudoresToolStripMenuItem.Text = "Listado de clientes deudores ";
             this.listadoDeClientesDeudoresToolStripMenuItem.Click += new System.EventHandler(this.listadoDeClientesDeudoresToolStripMenuItem_Click);
             // 
             // listadoDeClientesOrdenadosPorToolStripMenuItem
             // 
             this.listadoDeClientesOrdenadosPorToolStripMenuItem.Name = "listadoDeClientesOrdenadosPorToolStripMenuItem";
-            this.listadoDeClientesOrdenadosPorToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
-            this.listadoDeClientesOrdenadosPorToolStripMenuItem.Text = "Listado de clientes ordenados por ";
+            this.listadoDeClientesOrdenadosPorToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.listadoDeClientesOrdenadosPorToolStripMenuItem.Text = "Búsqueda de clientes ";
+            this.listadoDeClientesOrdenadosPorToolStripMenuItem.Click += new System.EventHandler(this.listadoDeClientesOrdenadosPorToolStripMenuItem_Click);
             // 
             // vendedoresToolStripMenuItem
             // 

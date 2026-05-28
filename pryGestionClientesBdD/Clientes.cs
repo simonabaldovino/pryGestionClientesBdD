@@ -33,5 +33,11 @@ namespace pryGestionClientesBdD
             Form formulario = new Form1();
             formulario.Show();
         }
+
+        private void listadoDeClientesOrdenadosPorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formulario = new BusquedaClientes();
+            formulario.Show();
+        }
     }
 }
