@@ -221,6 +221,42 @@ namespace pryGestionClientesBdD
             }
         }
 
+        public void Agregar()
+        {
+            try
+            {
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = Tabla;
+
+                adaptador = new OleDbDataAdapter(comando);
+                DataSet DS = new DataSet();
+                adaptador.Fill(DS, Tabla);
+
+                DataTable tabla = DS.Tables[Tabla];
+                DataRow fila = tabla.NewRow();
+
+                //llenar fila 
+                fila["Nombre"] = nom;
+                fila["Deuda"] = deu;
+                fila["Limite"] = lim;
+                fila["Automovil"] = idAu;
+
+                // incertar fila en tabla 
+                tabla.Rows.Add(fila);
+                OleDbCommandBuilder ConciliaCambios = new OleDbCommandBuilder(adaptador);
+                adaptador.Update(DS, Tabla);
+
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
 
 
 

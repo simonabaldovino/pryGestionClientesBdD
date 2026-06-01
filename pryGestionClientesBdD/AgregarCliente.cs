@@ -25,6 +25,16 @@ namespace pryGestionClientesBdD
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
+            clsCliente x = new clsCliente();
+            x.Nombre = txtNombre.Text;
+            x.Limite = Convert.ToDecimal(txtLimite.Text);
+            x.idAutomovil = Convert.ToInt32(cboAuto.SelectedValue);
+            x.Agregar();
+
+            MessageBox.Show("Datos grabados!");
+            txtNombre.Text = "";
+            txtLimite.Text = "";
+            cboAuto.SelectedIndex = 0;
 
         }
     }
