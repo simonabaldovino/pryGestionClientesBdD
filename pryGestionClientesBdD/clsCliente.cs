@@ -67,8 +67,11 @@ namespace pryGestionClientesBdD
             get { return lim; }
             set { lim = value; }
         }
-
-
+        public Int32 idAutomovil
+        {
+            get { return idAu; }
+            set { idAu = value; }
+        }
 
         // metodos y procedimientos 
 
@@ -85,7 +88,7 @@ namespace pryGestionClientesBdD
 
                 adaptador = new OleDbDataAdapter(comando);
                 DataSet DS = new DataSet();
-                adaptador.Fill(DS);
+                adaptador.Fill(DS, Tabla);
 
                 Grilla.DataSource = DS.Tables[0];
 
@@ -203,10 +206,10 @@ namespace pryGestionClientesBdD
                         if (DR.GetInt32(0) == idCliente)
                         {
                             idCli = DR.GetInt32(0);
-                            nom = DR.GetString(1); ;
+                            nom = DR.GetString(1); 
                             deu = DR.GetDecimal(2);
-                            lim = DR.GetDecimal(3); ;
-                            idAu = DR.GetInt32(4); ;
+                            lim = DR.GetDecimal(3); 
+                            idAu = DR.GetInt32(4); 
                         }
                     }
                 }

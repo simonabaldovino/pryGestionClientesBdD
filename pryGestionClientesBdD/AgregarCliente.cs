@@ -16,5 +16,16 @@ namespace pryGestionClientesBdD
         {
             InitializeComponent();
         }
+
+        private void AgregarCliente_Load(object sender, EventArgs e)
+        {
+            clsAutomovil auto = new clsAutomovil();
+            auto.Listar(cboAuto);
+        }
+
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
