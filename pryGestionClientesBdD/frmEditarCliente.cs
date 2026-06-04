@@ -80,6 +80,7 @@ namespace pryGestionClientesBdD
             x.Limite = Convert.ToDecimal(txtLimite.Text);
             x.Modificar(id);
             MessageBox.Show("El dato se cambió correctamente");
+            Limpiar();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -89,6 +90,19 @@ namespace pryGestionClientesBdD
 
             x.Eliminar(id);
             MessageBox.Show("El cliente se eliminó correctamente");
+            Limpiar();
         }
+
+        public void Limpiar()
+        {
+            txtLimite.Text = "";
+            lblNombre.Text = ""; 
+            lblDeuda.Text = "";
+            txtLimite.ReadOnly = true;
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
+            btnGuardar.Enabled = false;
+        }
+
     }
 }
