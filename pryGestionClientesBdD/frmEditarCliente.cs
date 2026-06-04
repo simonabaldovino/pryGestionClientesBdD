@@ -79,7 +79,16 @@ namespace pryGestionClientesBdD
 
             x.Limite = Convert.ToDecimal(txtLimite.Text);
             x.Modificar(id);
-            MessageBox.Show("El dato se cambio correctamente");
+            MessageBox.Show("El dato se cambió correctamente");
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            clsCliente x = new clsCliente();
+            Int32 id = Convert.ToInt32(txtCodigo.Text);
+
+            x.Eliminar(id);
+            MessageBox.Show("El cliente se eliminó correctamente");
         }
     }
 }

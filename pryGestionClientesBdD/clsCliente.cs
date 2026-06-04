@@ -303,9 +303,53 @@ namespace pryGestionClientesBdD
             }
         }
 
+        public void Eliminar(Int32 IdCliente)
+        {
+            try
+            {
+                String sql = "";
+                sql = "DELETE * FROM Cliente WHERE idCliente = " + IdCliente.ToString();
 
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
 
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
 
+                comando.ExecuteNonQuery();
+
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void AgregarRegistro()
+        {
+            try
+            {
+                String sql = "";
+                sql = "INSERT INTO Cliente (Nombre,Deuda,Limite,Automovil) VALUES ('" + nom + "',0, "+ lim.ToString() + "," + idAu.ToString() + ")";
+
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sql;
+
+                comando.ExecuteNonQuery();
+
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
 
 
 

@@ -37,5 +37,20 @@ namespace pryGestionClientesBdD
             cboAuto.SelectedIndex = 0;
 
         }
+
+        private void btnCargarSQL_Click(object sender, EventArgs e)
+        {
+            clsCliente x = new clsCliente();
+            x.Nombre = txtNombre.Text;
+            x.Limite = Convert.ToDecimal(txtLimite.Text);
+            x.idAutomovil = Convert.ToInt32(cboAuto.SelectedValue);
+            x.AgregarRegistro();
+
+            MessageBox.Show("Datos grabados!");
+            txtNombre.Text = "";
+            txtLimite.Text = "";
+            cboAuto.SelectedIndex = 0;
+
+        }
     }
 }
