@@ -32,15 +32,15 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblLimite = new System.Windows.Forms.Label();
             this.lblDeuda = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblNom = new System.Windows.Forms.Label();
             this.lblLimiteCred = new System.Windows.Forms.Label();
             this.lblDeud = new System.Windows.Forms.Label();
-            this.btnÇEliminar = new System.Windows.Forms.Button();
-            this.lblGuardar = new System.Windows.Forms.Button();
-            this.lblModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.txtLimite = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(130, 20);
             this.txtCodigo.TabIndex = 1;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // btnBuscar
             // 
@@ -68,10 +69,11 @@
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblLimite);
+            this.groupBox1.Controls.Add(this.txtLimite);
             this.groupBox1.Controls.Add(this.lblDeuda);
             this.groupBox1.Controls.Add(this.lblNombre);
             this.groupBox1.Controls.Add(this.lblNom);
@@ -83,14 +85,6 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Cliente";
-            // 
-            // lblLimite
-            // 
-            this.lblLimite.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblLimite.Location = new System.Drawing.Point(128, 136);
-            this.lblLimite.Name = "lblLimite";
-            this.lblLimite.Size = new System.Drawing.Size(100, 23);
-            this.lblLimite.TabIndex = 8;
             // 
             // lblDeuda
             // 
@@ -135,46 +129,56 @@
             this.lblDeud.TabIndex = 3;
             this.lblDeud.Text = "Deuda";
             // 
-            // btnÇEliminar
+            // btnEliminar
             // 
-            this.btnÇEliminar.Location = new System.Drawing.Point(18, 313);
-            this.btnÇEliminar.Name = "btnÇEliminar";
-            this.btnÇEliminar.Size = new System.Drawing.Size(87, 23);
-            this.btnÇEliminar.TabIndex = 8;
-            this.btnÇEliminar.Text = "Eliminar";
-            this.btnÇEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Location = new System.Drawing.Point(18, 313);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(87, 23);
+            this.btnEliminar.TabIndex = 8;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // lblGuardar
+            // btnGuardar
             // 
-            this.lblGuardar.Location = new System.Drawing.Point(218, 313);
-            this.lblGuardar.Name = "lblGuardar";
-            this.lblGuardar.Size = new System.Drawing.Size(87, 23);
-            this.lblGuardar.TabIndex = 9;
-            this.lblGuardar.Text = "Guardar";
-            this.lblGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Location = new System.Drawing.Point(218, 313);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(87, 23);
+            this.btnGuardar.TabIndex = 9;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // lblModificar
+            // btnModificar
             // 
-            this.lblModificar.Location = new System.Drawing.Point(116, 313);
-            this.lblModificar.Name = "lblModificar";
-            this.lblModificar.Size = new System.Drawing.Size(87, 23);
-            this.lblModificar.TabIndex = 10;
-            this.lblModificar.Text = "Modificar";
-            this.lblModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Location = new System.Drawing.Point(116, 313);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(87, 23);
+            this.btnModificar.TabIndex = 10;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.lblModificar_Click);
+            // 
+            // txtLimite
+            // 
+            this.txtLimite.Location = new System.Drawing.Point(126, 146);
+            this.txtLimite.Name = "txtLimite";
+            this.txtLimite.Size = new System.Drawing.Size(102, 20);
+            this.txtLimite.TabIndex = 11;
             // 
             // frmEditarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(334, 348);
-            this.Controls.Add(this.lblModificar);
-            this.Controls.Add(this.btnÇEliminar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.lblGuardar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCodigo);
             this.Name = "frmEditarCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEditarCliente";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -189,14 +193,14 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblLimite;
         private System.Windows.Forms.Label lblDeuda;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblNom;
         private System.Windows.Forms.Label lblLimiteCred;
         private System.Windows.Forms.Label lblDeud;
-        private System.Windows.Forms.Button btnÇEliminar;
-        private System.Windows.Forms.Button lblGuardar;
-        private System.Windows.Forms.Button lblModificar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.TextBox txtLimite;
     }
 }
