@@ -64,6 +64,12 @@
     <Compile Include="Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientesFor-Each.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientesFor-Each.Designer.cs">
+      <DependentUpon>ClientesFor-Each.cs</DependentUpon>
+    </Compile>
     <Compile Include="clsAutomovil.cs" />
     <Compile Include="clsCliente.cs" />
     <Compile Include="Form1.cs">
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientesFor-Each.resx">
+      <DependentUpon>ClientesFor-Each.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

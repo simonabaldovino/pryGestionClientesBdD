@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
+using System.Drawing.Printing;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace pryGestionClientesBdD
 {
@@ -351,9 +354,127 @@ namespace pryGestionClientesBdD
             }
         }
 
+        public void ListarForEach(DataGridView grilla)
+        {
+            try
+            {
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = Tabla;
 
+                adaptador = new OleDbDataAdapter(comando);
+                DataSet DS = new DataSet(); // crear dataset
+                adaptador.Fill(DS, Tabla); // lleno dataset con adaptador
 
+                if (DS.Tables[Tabla].Rows.Count > 0)
+                {
+                    foreach (DataRow fila in DS.Tables[Tabla].Rows)
+                    {
+                        grilla.Rows.Add(fila["Nombre"], fila["idAutomovil"]);
+                    }
+                }
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+        public void ReporteCliente(String NombreArchivo) 
+        {
+            try
+            {
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = Tabla;
 
+                adaptador = new OleDbDataAdapter(comando);
+                DataSet DS = new DataSet();
+                adaptador.Fill(DS, Tabla);
 
+                StreamWriter AD = new StreamWriter(NombreArchivo, false, Encoding.UTF8);
+                AD.WriteLine("LISTADO DE CLIENTES\n");
+                AD.WriteLine("Código; Nombre; Deuda");
+
+                cantidad = 0;
+                deuda = 0;
+
+                if (DS.Tables[Tabla].Rows.Count > 0)
+                {
+                    foreach (DataRow fila in DS.Tables[Tabla].Rows)
+                    {
+                        if (Convert.ToInt32(fila["Deuda"]) > 0)
+                        {
+                            AD.Write(fila["idCliente"]);
+                            AD.Write(";");
+                            AD.Write(fila["Nombre"]);
+                            AD.Write(";");
+                            AD.WriteLine(fila["Deuda"]);
+                            cantidad++;
+                            deuda = deuda + Convert.ToDecimal(fila["Deuda"]);
+                        }
+                    }
+                    AD.Write("\n");
+                    AD.Write("Cantidad de Clientes: ;");
+                    AD.WriteLine(cantidad);
+                    AD.Write("Total de Deudas: ;");
+                    AD.WriteLine(deuda);
+                    AD.Write("Promedio de Deudas: ;");
+                    AD.WriteLine(deuda / cantidad);
+                }
+                MessageBox.Show("El reporte se generó con éxito", "Reporte Generado",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AD.Close();
+                conexion.Close();
+            }
+            catch (Exception e) { MessageBox.Show(e.ToString()); }
+        }
+
+        public void Imprimir(PrintPageEventArgs reporte)
+        {
+            try
+            {
+                Font LetraTitulo1 = new Font("Arial", 20);
+                Font LetraTitulo2 = new Font("Arial", 12);
+                Font LetraTexto = new Font("Arial", 8);
+                Int32 f = 200;
+                reporte.Graphics.DrawString("Listado de Clientes", LetraTitulo1, Brushes.Red, 100, 100);
+                reporte.Graphics.DrawString("Código", LetraTitulo2, Brushes.Blue, 100, 180);
+                reporte.Graphics.DrawString("Nombre del cliente", LetraTitulo2, Brushes.Blue, 150, 180);
+
+                conexion.ConnectionString = CadenaConexion;
+                conexion.Open();
+
+                comando.Connection = conexion;
+                comando.CommandType = CommandType.TableDirect;
+                comando.CommandText = Tabla;
+
+                adaptador = new OleDbDataAdapter(comando);
+
+                DataSet DS = new DataSet();
+                adaptador.Fill(DS, Tabla);
+
+                if (DS.Tables[Tabla].Rows.Count > 0)
+                {
+                    foreach (DataRow fila in DS.Tables[Tabla].Rows)
+                    {
+                        reporte.Graphics.DrawString(fila["IdCliente"].ToString(), LetraTexto, Brushes.Black, 100, f);
+                        reporte.Graphics.DrawString(fila["Nombre"].ToString(), LetraTexto, Brushes.Black, 300, f);
+                        f = f + 15;
+                    }
+                }
+                conexion.Close();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.ToString());
+            }
+
+        }
     }
 }
